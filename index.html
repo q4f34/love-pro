@@ -1,0 +1,1180 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для тебя, Любимая ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #fff4f6;
+    color: #754b59;
+    overflow-x: hidden;
+}
+
+:root {
+    --pink: #d9829d;
+    --dark-pink: #c66b88;
+    --light-pink: #ffeaf0;
+    --white: #fffafb;
+    --text: #754b59;
+}
+
+section {
+    padding: 85px 20px;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    scroll-margin-top: 65px;
+}
+
+h1 {
+    color: var(--dark-pink);
+    font-size: clamp(36px, 7vw, 62px);
+    margin-bottom: 22px;
+}
+
+h2 {
+    color: var(--dark-pink);
+    font-size: clamp(27px, 5vw, 38px);
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: var(--dark-pink);
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+button {
+    border: none;
+    background: var(--pink);
+    color: white;
+    padding: 14px 27px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 18px #e9b1c1;
+}
+
+button:hover {
+    background: var(--dark-pink);
+    transform: translateY(-3px);
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #edbdcc;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    max-width: 100%;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 23px;
+    padding: 30px;
+    box-shadow: 0 8px 30px #edcbd4;
+    max-width: 700px;
+    width: 100%;
+}
+
+.hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, #ffe0e9, transparent 35%),
+        radial-gradient(circle at 80% 80%, #ffdce8, transparent 35%),
+        #fff4f6;
+}
+
+.heart {
+    font-size: 75px;
+    margin-bottom: 25px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.subtitle {
+    margin-bottom: 30px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(255, 234, 240, 0.96);
+    box-shadow: 0 3px 12px #edcbd4;
+}
+
+nav a {
+    color: var(--dark-pink);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: white;
+}
+
+/* ПИСЬМО */
+
+.letter-section {
+    background: var(--light-pink);
+}
+
+.letter {
+    text-align: left;
+}
+
+.letter p {
+    margin-bottom: 17px;
+}
+
+.signature {
+    text-align: right;
+    color: var(--dark-pink);
+    font-style: italic;
+}
+
+/* СЕРДЕЧКИ */
+
+.hearts-section {
+    background: #fff4f6;
+}
+
+.heart-button {
+    font-size: 70px;
+    background: transparent;
+    box-shadow: none;
+    padding: 15px;
+}
+
+.heart-button:hover {
+    background: transparent;
+    transform: scale(1.2);
+}
+
+.floating-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    animation: fly 2s ease-out forwards;
+}
+
+@keyframes fly {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-190px) scale(1.8) rotate(25deg);
+    }
+}
+
+/* ПИСЬМА */
+
+.when-section {
+    background: #ffeaf0;
+}
+
+.envelope-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 750px;
+    width: 100%;
+}
+
+.envelope {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 25px 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 18px #edcbd4;
+    transition: 0.3s;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+.envelope span {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.message-box {
+    display: none;
+    margin-top: 25px;
+    animation: appear 0.6s ease;
+}
+
+/* БАНОЧКА */
+
+.jar-section {
+    background: #fff4f6;
+}
+
+.jar {
+    font-size: 105px;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.jar:hover {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.reason {
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    color: var(--dark-pink);
+    margin: 20px auto;
+}
+
+/* АЛЬБОМ */
+
+.album-section {
+    background: #ffeaf0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 850px;
+    width: 100%;
+}
+
+.photo-card {
+    background: white;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px #edcbd4;
+    transform: rotate(-1deg);
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.photo-card p {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* СЧЁТЧИК */
+
+.counter-section {
+    background: #fff4f6;
+}
+
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 650px;
+}
+
+.counter-item {
+    background: white;
+    padding: 22px 8px;
+    border-radius: 17px;
+    box-shadow: 0 5px 18px #edcbd4;
+}
+
+.counter-item strong {
+    display: block;
+    font-size: 32px;
+    color: var(--dark-pink);
+}
+
+.counter-item span {
+    font-size: 14px;
+}
+
+/* ВИКТОРИНА */
+
+.quiz-section {
+    background: #ffeaf0;
+}
+
+.quiz-question {
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quiz-options button {
+    width: 100%;
+    background: #f2b5c8;
+}
+
+.quiz-options button:hover {
+    background: var(--dark-pink);
+}
+
+.quiz-result {
+    margin-top: 25px;
+    color: var(--dark-pink);
+    font-size: 20px;
+}
+
+/* СЕКРЕТ */
+
+.secret-section {
+    background:
+        radial-gradient(circle at 50% 50%, #ffe0e9, transparent 70%),
+        #fff0f4;
+}
+
+.secret-message {
+    display: none;
+    margin-top: 30px;
+    animation: appear 1s ease;
+}
+
+.secret-message p {
+    font-size: 21px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ОБЩЕЕ */
+
+footer {
+    padding: 30px 15px;
+    text-align: center;
+    background: #ffeaf0;
+    color: #bd8194;
+}
+
+.hint {
+    color: #ae7d8d;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 60px 16px;
+    }
+
+    .card {
+        padding: 23px;
+    }
+
+    .envelope-grid,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photo-card img {
+        height: 230px;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 7px 9px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- МЕНЮ -->
+<nav>
+    <a href="#home">Главная</a>
+    <a href="#letter">Письмо</a>
+    <a href="#when">Открой, когда...</a>
+    <a href="#jar">Причины</a>
+    <a href="#album">Альбом</a>
+    <a href="#counter">Наша дата</a>
+    <a href="#quiz">Викторина</a>
+    <a href="#secret">Секрет</a>
+</nav>
+
+
+<!-- ГЛАВНАЯ -->
+<section class="hero" id="home">
+
+    <div class="heart">❤️</div>
+
+    <h1>Для тебя, Любимая</h1>
+
+    <p class="subtitle">
+        Маленький мир, который я создал специально для тебя.
+    </p>
+
+    <button onclick="scrollToSection('letter')">
+        Открыть моё письмо 💌
+    </button>
+
+</section>
+
+
+<!-- ПИСЬМО -->
+<section class="letter-section" id="letter">
+
+    <h2>Несколько слов для тебя 💗</h2>
+
+    <div class="card letter">
+
+        <p>Моя любимая,</p>
+
+        <p>
+            Я долго думал, как выразить всё то,
+            что чувствую к тебе. И понял, что
+            иногда даже самые красивые слова
+            не могут передать того, насколько
+            дорог мне человек.
+        </p>
+
+        <p>
+            Я хочу, чтобы ты всегда помнила,
+            что ты очень важна для меня.
+            Твоя улыбка, твой голос, твой смех
+            и даже самые обычные моменты,
+            проведённые вместе, делают мои дни
+            намного лучше.
+        </p>
+
+        <p>
+            Спасибо тебе за то, что ты есть.
+            За каждую минуту, за каждое
+            воспоминание и за возможность
+            быть рядом с тобой.
+        </p>
+
+        <p>
+            Я не обещаю, что каждый день
+            будет идеальным, но обещаю,
+            что буду стараться делать тебя
+            счастливой и напоминать о том,
+            как сильно ты мне дорога.
+        </p>
+
+        <p>
+            Я очень сильно тебя люблю.
+            И надеюсь, что этот маленький
+            сайт будет иногда напоминать
+            тебе об этом. ❤️
+        </p>
+
+        <p class="signature">
+            С любовью, твой человек ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- СЕРДЕЧКИ -->
+<section class="hearts-section">
+
+    <h2>Немного любви для тебя</h2>
+
+    <p>Нажимай на сердечко и получай немного моей любви ❤️</p>
+
+    <button class="heart-button" onclick="makeHearts(event)">
+        💗
+    </button>
+
+    <p class="hint">
+        Каждое сердечко — ещё одно напоминание,
+        что я тебя люблю.
+    </p>
+
+</section>
+
+
+<!-- ОТКРОЙ КОГДА -->
+<section class="when-section" id="when">
+
+    <h2>Открой, когда... 💌</h2>
+
+    <p style="margin-bottom: 30px;">
+        Для каждого настроения я приготовил тебе отдельное письмо.
+    </p>
+
+    <div class="envelope-grid">
+
+        <div class="envelope" onclick="openLetter(0)">
+            <span>💌</span>
+            <h3>Когда тебе грустно</h3>
+            <p>Небольшая поддержка</p>
+        </div>
+
+        <div class="envelope" onclick="openLetter(1)">
+            <span>💕</span>
+            <h3>Когда скучаешь</h3>
+            <p>Я мысленно рядом</p>
+        </div>
+
+        <div class="envelope" onclick="openLetter(2)">
+            <span>🌸</span>
+            <h3>Когда хочется улыбнуться</h3>
+            <p>Немного тепла</p>
+        </div>
+
+        <div class="envelope" onclick="openLetter(3)">
+            <span>❤️</span>
+            <h3>Когда хочешь знать, как я тебя люблю</h3>
+            <p>Самое важное</p>
+        </div>
+
+    </div>
+
+    <div class="card message-box" id="open-letter">
+        <h3 id="letter-title"></h3>
+        <p id="letter-text"></p>
+    </div>
+
+</section>
+
+
+<!-- БАНОЧКА ПРИЧИН -->
+<section class="jar-section" id="jar">
+
+    <h2>Баночка моей любви 🫙</h2>
+
+    <p>
+        Внутри спрятаны причины, почему ты для меня особенная.
+    </p>
+
+    <div class="jar" onclick="getReason()">🫙</div>
+
+    <p class="hint">Нажми на баночку, чтобы достать записку</p>
+
+    <div class="card reason" id="reason">
+        Здесь тебя ждёт маленький сюрприз 💗
+    </div>
+
+    <button onclick="getReason()">Достать записку ❤️</button>
+
+</section>
+
+
+<!-- АЛЬБОМ -->
+<section class="album-section" id="album">
+
+    <h2>Наш альбом воспоминаний 📸</h2>
+
+    <p style="margin-bottom: 30px;">
+        Маленькие моменты, которые хочется хранить вечно.
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="photo1.jpg" alt="Наше воспоминание 1">
+            <p>Наш особенный момент ❤️</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo2.jpg" alt="Наше воспоминание 2">
+            <p>Один из лучших дней 💗</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo3.jpg" alt="Наше воспоминание 3">
+            <p>Счастливые мгновения 🌸</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo4.jpg" alt="Наше воспоминание 4">
+            <p>И это только начало 💕</p>
+        </div>
+
+    </div>
+
+    <p class="hint">
+        Вставь свои фотографии вместо photo1.jpg, photo2.jpg и так далее.
+    </p>
+
+</section>
+
+
+<!-- СЧЁТЧИК -->
+<section class="counter-section" id="counter">
+
+    <h2>Сколько мы вместе? ⏳</h2>
+
+    <p>И каждый день для меня особенный.</p>
+
+    <div class="counter-grid">
+
+        <div class="counter-item">
+            <strong id="days">0</strong>
+            <span>дней</span>
+        </div>
+
+        <div class="counter-item">
+            <strong id="hours">0</strong>
+            <span>часов</span>
+        </div>
+
+        <div class="counter-item">
+            <strong id="minutes">0</strong>
+            <span>минут</span>
+        </div>
+
+        <div class="counter-item">
+            <strong id="seconds">0</strong>
+            <span>секунд</span>
+        </div>
+
+    </div>
+
+    <p class="hint">
+        С самого первого дня и до бесконечности ❤️
+    </p>
+
+</section>
+
+
+<!-- ВИКТОРИНА -->
+<section class="quiz-section" id="quiz">
+
+    <h2>Наша маленькая викторина 💞</h2>
+
+    <p style="margin-bottom: 25px;">
+        Посмотрим, насколько хорошо ты помнишь нашу историю!
+    </p>
+
+    <div class="card">
+
+        <div class="quiz-question" id="question">
+            Вопрос появится здесь
+        </div>
+
+        <div class="quiz-options" id="options"></div>
+
+        <div class="quiz-result" id="quiz-result"></div>
+
+        <button id="restart-quiz" onclick="startQuiz()"
+                style="display:none; margin-top:20px;">
+            Пройти ещё раз 💗
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- СЕКРЕТНАЯ СТРАНИЦА -->
+<section class="secret-section" id="secret">
+
+    <div class="heart">💝</div>
+
+    <h2>Для тебя есть кое-что особенное...</h2>
+
+    <p style="margin-bottom: 25px;">
+        Это послание я приберёг напоследок.
+    </p>
+
+    <button onclick="showSecret()">
+        Открыть секрет 🎁
+    </button>
+
+    <div class="card secret-message" id="secret-message">
+
+        <h2>Ты — моё счастье ❤️</h2>
+
+        <p>
+            Среди миллионов людей я рад,
+            что встретил именно тебя.
+        </p>
+
+        <p style="margin-top: 20px;">
+            И если бы мне снова пришлось выбирать,
+            я бы снова выбрал тебя.
+        </p>
+
+        <p style="margin-top: 25px; color: #c66b88;">
+            Я люблю тебя, Любимая.
+            Сегодня, завтра и каждый день. ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Сделано с любовью специально для тебя ❤️
+</footer>
+
+
+<script>
+
+// ======================================
+// НАСТРОЙКИ САЙТА
+// ======================================
+
+// Укажи дату начала ваших отношений.
+// Формат: ГОД-МЕСЯЦ-ДЕНЬ
+// Например: "2025-05-14"
+
+const startDate = "2025-01-01";
+
+
+// ======================================
+// ПЕРЕХОДЫ ПО СТРАНИЦЕ
+// ======================================
+
+function scrollToSection(id) {
+
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// ======================================
+// ЛЕТАЮЩИЕ СЕРДЕЧКИ
+// ======================================
+
+function makeHearts(event) {
+
+    const emojis = ["❤️", "💗", "💕", "💖", "💘", "💝"];
+
+    for (let i = 0; i < 12; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+
+        heart.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left =
+            (event.clientX + (Math.random() - 0.5) * 150) + "px";
+
+        heart.style.top =
+            (event.clientY + (Math.random() - 0.5) * 80) + "px";
+
+        heart.style.fontSize =
+            (20 + Math.random() * 25) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 2000);
+
+    }
+
+}
+
+
+// ======================================
+// ПИСЬМА "ОТКРОЙ, КОГДА"
+// ======================================
+
+const letters = [
+
+    {
+        title: "Если тебе грустно ❤️",
+        text: "Любимая, пожалуйста, помни, что плохие дни не длятся вечно. Ты не обязана всегда улыбаться и быть сильной. Я очень хочу, чтобы ты знала: ты мне дорога в любом настроении. Пусть это письмо подарит тебе немного тепла."
+    },
+
+    {
+        title: "Если ты скучаешь 💕",
+        text: "Я тоже думаю о тебе. Даже когда мы не рядом, ты остаёшься в моих мыслях. Представь, что это письмо — маленькое напоминание о том, что между нами есть что-то очень ценное."
+    },
+
+    {
+        title: "Если хочется улыбнуться 🌸",
+        text: "Знаешь, что самое прекрасное? То, что где-то в этом мире есть ты. И мне невероятно повезло, что наши пути пересеклись. Улыбнись, любимая, ведь твоя улыбка для меня очень дорога!"
+    },
+
+    {
+        title: "Если ты сомневаешься в моей любви ❤️",
+        text: "Я люблю тебя не за что-то одно. Мне дорога ты целиком: твой характер, твои мысли, твой смех, твои привычки и даже маленькие странности. Я счастлив, что именно ты есть в моей жизни."
+    }
+
+];
+
+function openLetter(index) {
+
+    document.getElementById("letter-title").innerText =
+        letters[index].title;
+
+    document.getElementById("letter-text").innerText =
+        letters[index].text;
+
+    const box = document.getElementById("open-letter");
+
+    box.style.display = "block";
+
+    box.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+// ======================================
+// БАНОЧКА С ПРИЧИНАМИ ЛЮБВИ
+// ======================================
+
+const reasons = [
+
+    "Потому что твоя улыбка делает мой день лучше ❤️",
+    "Потому что с тобой даже обычные дни становятся особенными.",
+    "Потому что мне нравится слушать твой голос.",
+    "Потому что ты умеешь делать меня счастливым.",
+    "Потому что рядом с тобой я могу быть собой.",
+    "Потому что мне дороги наши разговоры.",
+    "Потому что ты — мой любимый человек.",
+    "Потому что я люблю твой смех.",
+    "Потому что ты делаешь мой мир светлее.",
+    "Потому что я хочу создавать с тобой новые воспоминания.",
+    "Потому что ты уникальная.",
+    "Потому что я рад каждому моменту с тобой.",
+    "Потому что ты появилась в моей жизни.",
+    "Потому что мне нравится заботиться о тебе.",
+    "Потому что я снова и снова выбираю тебя."
+
+];
+
+let lastReason = -1;
+
+function getReason() {
+
+    let index;
+
+    do {
+        index = Math.floor(Math.random() * reasons.length);
+    } while (index === lastReason && reasons.length > 1);
+
+    lastReason = index;
+
+    document.getElementById("reason").innerText =
+        reasons[index];
+
+}
+
+
+// ======================================
+// СЧЁТЧИК ВРЕМЕНИ
+// ======================================
+
+function updateCounter() {
+
+    const start = new Date(startDate + "T00:00:00");
+    const now = new Date();
+
+    if (isNaN(start.getTime()) || start > now) {
+        document.getElementById("days").innerText = "—";
+        document.getElementById("hours").innerText = "—";
+        document.getElementById("minutes").innerText = "—";
+        document.getElementById("seconds").innerText = "—";
+        return;
+    }
+
+    let difference = now - start;
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    difference %= 1000 * 60 * 60 * 24;
+
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    difference %= 1000 * 60 * 60;
+
+    const minutes = Math.floor(difference / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+
+// ======================================
+// ВИКТОРИНА
+// ======================================
+
+// Здесь можно заменить вопросы и варианты
+// на настоящие события из вашей истории.
+
+const questions = [
+
+    {
+        question: "Что для нас самое ценное?",
+        answers: [
+            "Наши совместные моменты",
+            "Телефон",
+            "Случайные вещи"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Что я хочу делать с тобой чаще?",
+        answers: [
+            "Смотреть на часы",
+            "Создавать новые воспоминания",
+            "Считать минуты"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Что я чувствую, когда думаю о тебе?",
+        answers: [
+            "Радость и тепло",
+            "Скуку",
+            "Ничего"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Кого бы я выбрал снова?",
+        answers: [
+            "Кого-нибудь другого",
+            "Никого",
+            "Тебя, Любимая ❤️"
+        ],
+        correct: 2
+    }
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+function startQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+    answered = false;
+
+    document.getElementById("quiz-result").innerText = "";
+
+    document.getElementById("restart-quiz").style.display = "none";
+
+    showQuestion();
+
+}
+
+function showQuestion() {
+
+    if (currentQuestion >= questions.length) {
+
+        document.getElementById("question").innerText =
+            "Викторина завершена! 💗";
+
+        document.getElementById("options").innerHTML = "";
+
+        document.getElementById("quiz-result").innerText =
+            "Правильных ответов: " + score + " из " +
+            questions.length +
+            ". Но для меня ты всегда самая лучшая! ❤️";
+
+        document.getElementById("restart-quiz").style.display =
+            "inline-block";
+
+        return;
+    }
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").innerText =
+        (currentQuestion + 1) + ". " + q.question;
+
+    const options = document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q.answers.forEach((answer, index) => {
+
+        const button = document.createElement("button");
+
+        button.innerText = answer;
+
+        button.onclick = () => checkAnswer(index);
+
+        options.appendChild(button);
+
+    });
+
+}
+
+function checkAnswer(index) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+
+    const buttons = document.querySelectorAll(".quiz-options button");
+
+    if (index === q.correct) {
+
+        score++;
+
+        buttons[index].style.background = "#9bc9a5";
+
+        document.getElementById("quiz-result").innerText =
+            "Правильно! Ты молодец! 💗";
+
+    } else {
+
+        buttons[index].style.background = "#d99aaa";
+
+        buttons[q.correct].style.background = "#9bc9a5";
+
+        document.getElementById("quiz-result").innerText =
+            "Ничего страшного! Главное, что мы есть друг у друга ❤️";
+
+    }
+
+    setTimeout(() => {
+
+        currentQuestion++;
+
+        document.getElementById("quiz-result").innerText = "";
+
+        showQuestion();
+
+    }, 1500);
+
+}
+
+startQuiz();
+
+
+// ======================================
+// СЕКРЕТНОЕ ПОСЛАНИЕ
+// ======================================
+
+function showSecret() {
+
+    const secret = document.getElementById("secret-message");
+
+    secret.style.display = "block";
+
+    secret.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left =
+                Math.random() * window.innerWidth + "px";
+
+            heart.style.top = window.innerHeight + "px";
+
+            heart.style.fontSize = "25px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 2000);
+
+        }, i * 80);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
